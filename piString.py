@@ -112,13 +112,24 @@ for line in lines:
 
 filename = "learningPython.txt"
 print("\n")
+
+# Easiest way to modify value by printing the change from the file as we loop over the lines
 with open(filename) as file_object:
     for lines in file_object:
         print(lines.replace("Python", "C"))
         
+# Saving file to list
 with open(filename) as file_object:
     lines = file_object.readlines()
-    
+
+# Similar to the first way, we just print the change as we loop over the list.
 for line in lines:
     print(line.replace("Python", "C"))
-        
+    
+# If we want to update the list itself, we need to get the position of the list and save the update to that position through a loop
+for pos in range(len(lines)):
+    lines[pos] = lines[pos].replace("Python", "C")
+    
+# Print line by line to show that the list was updated
+for line in lines:
+    print(line)
